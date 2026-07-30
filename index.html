@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Desa Kertowono</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              50: '#f0f4f8',
+              100: '#d9e2ec',
+              200: '#bcccdc',
+              300: '#9fb3c8',
+              400: '#829ab1',
+              500: '#627d98',
+              600: '#486581',
+              700: '#334e68',
+              800: '#243b53',
+              900: '#102a43',
+              950: '#0a1929',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 5px rgba(59,130,246,0.3); }
+      50% { box-shadow: 0 0 20px rgba(59,130,246,0.6); }
+    }
+
+    .animate-fadeInUp { animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .animate-fadeInLeft { animation: fadeInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .animate-fadeInRight { animation: fadeInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .animate-scaleIn { animation: scaleIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .animate-float { animation: float 3s ease-in-out infinite; }
+
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
+    .delay-600 { animation-delay: 0.6s; }
+
+    .scroll-animate { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .scroll-animate.visible { opacity: 1; transform: translateY(0); }
+
+    .hero-overlay {
+      background: linear-gradient(135deg, rgba(10,25,41,0.85) 0%, rgba(16,42,67,0.7) 50%, rgba(10,25,41,0.85) 100%);
+    }
+
+    .section-divider {
+      background: linear-gradient(90deg, transparent, rgba(59,130,246,0.3), transparent);
+      height: 1px;
+    }
+
+    .glass-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .glass-card-blue {
+      background: rgba(59,130,246,0.05);
+      border: 1px solid rgba(59,130,246,0.15);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-blur {
+      background: rgba(10,25,41,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(59,130,246,0.1);
+    }
+
+    .watermark {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      font-size: 10px;
+      color: rgba(255,255,255,0.15);
+      z-index: 9999;
+      pointer-events: none;
+      writing-mode: vertical-rl;
+      letter-spacing: 1px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -12px rgba(59,130,246,0.15);
+      border-color: rgba(59,130,246,0.3);
+    }
+
+    .img-hover img {
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .img-hover:hover img {
+      transform: scale(1.05);
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, #60a5fa, #3b82f6, #2563eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .text-gradient-light {
+      background: linear-gradient(135deg, #93c5fd, #60a5fa, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #1d4ed8, #2563eb);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px -4px rgba(37,99,235,0.4);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(59,130,246,0.4);
+      color: #93c5fd;
+      transition: all 0.3s ease;
+    }
+    .btn-outline:hover {
+      background: rgba(59,130,246,0.1);
+      border-color: #3b82f6;
+    }
+
+    .misi-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3b82f6, #60a5fa);
+      box-shadow: 0 0 8px rgba(59,130,246,0.4);
+    }
+
+    .galley-grid-item {
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .toast-notification {
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: rgba(10,25,41,0.95);
+      border: 1px solid rgba(59,130,246,0.3);
+      color: #e2e8f0;
+      padding: 12px 24px;
+      border-radius: 12px;
+      backdrop-filter: blur(12px);
+      z-index: 10000;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      font-size: 14px;
+    }
+    .toast-notification.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a1929; }
+    ::-webkit-scrollbar-thumb { background: #334e68; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #486581; }
+
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body class="bg-navy-950 text-white antialiased">
+
+  <!-- Watermark -->
+  <div class="watermark">KKN ITB WIGA Desa Kertowono 2026 – Fiisatil Kamila</div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast-notification">
+    <span id="toast-message"></span>
+  </div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 nav-blur transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <!-- Logo -->
+<a href="#hero" class="flex items-center gap-3 group">
+    <img src="logo lumajang.png" alt="Logo Desa" class="w-9 h-9 md:w-10 md:h-10 rounded-lg object-cover">
+
+    <div>
+        <span class="font-serif text-base md:text-lg font-medium text-white">Kertowono</span>
+        <span class="hidden md:block text-[10px] text-navy-400 -mt-1">Desa Kertowono, Lumajang</span>
+    </div>
+</a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden lg:flex items-center gap-1">
+          <a href="#profil" class="nav-link px-3 py-2 text-sm text-navy-300 hover:text-white rounded-lg hover:bg-white/5 transition-all">Profil</a>
+          <a href="#visi-misi" class="nav-link px-3 py-2 text-sm text-navy-300 hover:text-white rounded-lg hover:bg-white/5 transition-all">Visi & Misi</a>
+          <a href="#pemerintahan" class="nav-link px-3 py-2 text-sm text-navy-300 hover:text-white rounded-lg hover:bg-white/5 transition-all">Pemerintahan</a>
+          <a href="#potensi" class="nav-link px-3 py-2 text-sm text-navy-300 hover:text-white rounded-lg hover:bg-white/5 transition-all">Potensi</a>
+          <a href="#galeri" class="nav-link px-3 py-2 text-sm text-navy-300 hover:text-white rounded-lg hover:bg-white/5 transition-all">Galeri</a>
+          <a href="#kontak" class="nav-link px-3 py-2 text-sm text-navy-300 hover:text-white rounded-lg hover:bg-white/5 transition-all">Kontak</a>
+          <a href="#kontak" class="ml-3 btn-primary px-5 py-2.5 rounded-lg text-sm font-medium text-white">Hubungi Kami</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="menuBtn" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/5 transition-colors" aria-label="Menu">
+          <span class="iconify text-xl text-white" data-icon="lucide:menu"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu fixed inset-0 z-[60] bg-navy-950/98 backdrop-blur-xl lg:hidden">
+    <div class="flex flex-col h-full">
+      <div class="flex items-center justify-between px-5 h-16">
+        <a href="#hero" class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-sm">K</div>
+          <span class="font-serif text-lg font-medium text-white">Kertowono</span>
+        </a>
+        <button id="closeMenuBtn" class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/5 transition-colors">
+          <span class="iconify text-xl text-white" data-icon="lucide:x"></span>
+        </button>
+      </div>
+      <div class="flex-1 flex flex-col justify-center px-8 gap-2">
+        <a href="#profil" class="mobile-nav-link text-2xl font-light text-navy-300 hover:text-white py-3 border-b border-white/5 transition-colors">Profil Desa</a>
+        <a href="#visi-misi" class="mobile-nav-link text-2xl font-light text-navy-300 hover:text-white py-3 border-b border-white/5 transition-colors">Visi & Misi</a>
+        <a href="#pemerintahan" class="mobile-nav-link text-2xl font-light text-navy-300 hover:text-white py-3 border-b border-white/5 transition-colors">Pemerintahan</a>
+        <a href="#potensi" class="mobile-nav-link text-2xl font-light text-navy-300 hover:text-white py-3 border-b border-white/5 transition-colors">Potensi Desa</a>
+        <a href="#galeri" class="mobile-nav-link text-2xl font-light text-navy-300 hover:text-white py-3 border-b border-white/5 transition-colors">Galeri</a>
+        <a href="#kontak" class="mobile-nav-link text-2xl font-light text-navy-300 hover:text-white py-3 border-b border-white/5 transition-colors">Kontak</a>
+        <a href="#kontak" class="mt-6 btn-primary px-6 py-3 rounded-lg text-base font-medium text-white text-center">Hubungi Kami</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== HERO ===================== -->
+<section id="hero" class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+
+    <!-- Background Image -->
+    <img
+        src="pendopo.jpeg"
+        alt="Pendopo Desa Kertowono"
+        class="absolute inset-0 w-full h-full object-cover object-center">
+
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[#081B35]/90 via-[#081B35]/70 to-[#081B35]/85"></div>
+
+    <!-- Decorative Elements -->
+    <div class="absolute top-1/4 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/4 right-10 w-80 h-80 bg-cyan-400/10 rounded-full blur-3xl"></div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto">
+
+        <div class="animate-fadeInUp opacity-0" style="animation-delay:.2s">
+
+            <span class="inline-block px-5 py-2 rounded-full text-xs font-semibold tracking-[0.25em] uppercase text-blue-300 border border-blue-500/30 bg-blue-600/10 backdrop-blur-md mb-8">
+
+                Kabupaten Lumajang • Jawa Timur
+
+            </span>
+
+        </div>
+
+        <h1 class="animate-fadeInUp opacity-0 font-serif text-5xl md:text-7xl lg:text-8xl font-semibold leading-tight text-white mb-6"
+            style="animation-delay:.4s">
+
+            Desa
+
+            <span class="block text-blue-400">
+
+                Kertowono
+
+            </span>
+
+        </h1>
+
+        <p class="animate-fadeInUp opacity-0 text-lg md:text-xl text-gray-200 leading-relaxed max-w-3xl mx-auto mb-10"
+            style="animation-delay:.6s">
+
+            Membangun desa yang maju, mandiri, sejahtera,
+            berbasis potensi lokal serta kearifan masyarakat
+            menuju desa digital yang inovatif.
+
+        </p>
+
+        <div class="animate-fadeInUp opacity-0 flex flex-col sm:flex-row gap-4 justify-center"
+            style="animation-delay:.8s">
+
+            <a href="#profil"
+                class="px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 duration-300 text-white font-semibold shadow-lg">
+
+                Jelajahi Desa
+
+            </a>
+
+            <a href="#potensi"
+                class="px-8 py-4 rounded-xl border border-blue-400 text-blue-200 hover:bg-blue-600 hover:text-white duration-300">
+
+                Potensi Desa
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Scroll -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+
+        <div class="w-7 h-12 rounded-full border-2 border-blue-300 flex justify-center pt-2">
+
+            <div class="w-1.5 h-3 rounded-full bg-blue-300 animate-pulse"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+  <!-- ===================== PROFIL DESA ===================== -->
+  <section id="profil" class="py-20 md:py-28 relative">
+    <div class="absolute top-0 left-0 right-0 section-divider"></div>
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+      <!-- Section Header -->
+      <div class="text-center mb-16 scroll-animate">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.15em] uppercase text-blue-400 bg-blue-500/10 border border-blue-500/15 mb-4">Profil Desa</span>
+        <h2 class="font-serif text-3xl md:text-5xl font-medium tracking-tight text-white mb-4">Mengenal <span class="text-gradient">Desa Kertowono</span></h2>
+        <p class="text-navy-400 text-sm md:text-base max-w-2xl mx-auto font-light">Potret singkat desa yang terletak di kaki Gunung Argowayo, Kecamatan Gucialit, Kabupaten Lumajang</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Image -->
+        <div class="scroll-animate img-hover">
+          <div class="relative rounded-2xl overflow-hidden border border-white/5 shadow-2xl shadow-blue-500/5">
+            <img src="https://picsum.photos/seed/kertowono-landscape/800/600" alt="Pemandangan Desa Kertowono" class="w-full aspect-[4/3] object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <span class="text-xs text-blue-300 bg-blue-500/20 backdrop-blur-sm px-3 py-1 rounded-full border border-blue-500/20">Kecamatan Gucialit, Lumajang</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="space-y-6">
+          <div class="scroll-animate">
+            <h3 class="font-serif text-2xl md:text-3xl font-medium text-white mb-4">Desa di Kaki Gunung Argowayo</h3>
+            <p class="text-navy-300 font-light leading-relaxed text-sm md:text-base">
+              Desa Kertowono merupakan salah satu desa yang berada di Kecamatan Gucialit, Kabupaten Lumajang, Provinsi Jawa Timur. Terletak di kawasan dataran tinggi dengan udara sejuk dan pemandangan alam yang asri, desa ini dikelilingi oleh perkebunan dan pertanian yang menjadi mata pencaharian utama masyarakat.
+            </p>
+          </div>
+          <div class="scroll-animate" style="transition-delay:0.15s">
+            <p class="text-navy-300 font-light leading-relaxed text-sm md:text-base">
+              Dengan letak geografis yang strategis di kaki Gunung Argowayo, Desa Kertowono memiliki potensi alam yang melimpah — mulai dari hasil perkebunan kopi, cengkeh, dan berbagai tanaman holtikultura. Masyarakat desa hidup harmoni dengan adat istiadat dan kearifan lokal yang masih terjaga hingga kini.
+            </p>
+          </div>
+
+          <!-- Stats Grid -->
+          <div class="grid grid-cols-2 gap-4 pt-4 scroll-animate" style="transition-delay:0.3s">
+            <div class="glass-card-blue rounded-xl p-4 text-center card-hover">
+              <div class="text-2xl md:text-3xl font-serif font-medium text-gradient">3.200</div>
+              <div class="text-xs text-navy-400 mt-1">Jumlah Penduduk</div>
+            </div>
+            <div class="glass-card-blue rounded-xl p-4 text-center card-hover">
+              <div class="text-2xl md:text-3xl font-serif font-medium text-gradient">856</div>
+              <div class="text-xs text-navy-400 mt-1">Kepala Keluarga</div>
+            </div>
+            <div class="glass-card-blue rounded-xl p-4 text-center card-hover">
+              <div class="text-2xl md:text-3xl font-serif font-medium text-gradient">750</div>
+              <div class="text-xs text-navy-400 mt-1">Luas (Ha)</div>
+            </div>
+            <div class="glass-card-blue rounded-xl p-4 text-center card-hover">
+              <div class="text-2xl md:text-3xl font-serif font-medium text-gradient">5</div>
+              <div class="text-xs text-navy-400 mt-1">Dusun</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Info Cards -->
+      <div class="grid md:grid-cols-3 gap-6 mt-16">
+        <div class="scroll-animate glass-card rounded-xl p-6 card-hover" style="transition-delay:0.1s">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-4">
+            <span class="iconify text-2xl text-blue-400" data-icon="lucide:map-pin"></span>
+          </div>
+          <h4 class="font-serif text-lg font-medium text-white mb-2">Letak Geografis</h4>
+          <p class="text-sm text-navy-400 font-light leading-relaxed">Berada di koordinat 8°07' LS dan 113°14' BT dengan ketinggian ±600 mdpl. Berbatasan dengan Hutan Lindung Argowayo di sebelah barat.</p>
+        </div>
+        <div class="scroll-animate glass-card rounded-xl p-6 card-hover" style="transition-delay:0.25s">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-4">
+            <span class="iconify text-2xl text-blue-400" data-icon="lucide:mountain"></span>
+          </div>
+          <h4 class="font-serif text-lg font-medium text-white mb-2">Topografi</h4>
+          <p class="text-sm text-navy-400 font-light leading-relaxed">Daratan berbukit dengan kemiringan 15–40%. Sebagian besar wilayah berupa lahan pertanian dan perkebunan dengan tanah vulkanik yang subur.</p>
+        </div>
+        <div class="scroll-animate glass-card rounded-xl p-6 card-hover" style="transition-delay:0.4s">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-4">
+            <span class="iconify text-2xl text-blue-400" data-icon="lucide:users"></span>
+          </div>
+          <h4 class="font-serif text-lg font-medium text-white mb-2">Demografi</h4>
+          <p class="text-sm text-navy-400 font-light leading-relaxed">Mayoritas masyarakat bermata pencaharian sebagai petani dan perkebani. Tingkat kepadatan penduduk tergolong sedang dengan distribusi merata di 5 dusun.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== VISI & MISI ===================== -->
+  <section id="visi-misi" class="py-20 md:py-28 relative overflow-hidden">
+    <div class="absolute top-0 left-0 right-0 section-divider"></div>
+    <!-- Background decoration -->
+    <div class="absolute top-1/2 -translate-y-1/2 -right-40 w-[500px] h-[500px] bg-blue-500/3 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/2 -translate-y-1/2 -left-40 w-[400px] h-[400px] bg-blue-600/3 rounded-full blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-5 md:px-8 relative z-10">
+      <div class="text-center mb-16 scroll-animate">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.15em] uppercase text-blue-400 bg-blue-500/10 border border-blue-500/15 mb-4">Visi & Misi</span>
+        <h2 class="font-serif text-3xl md:text-5xl font-medium tracking-tight text-white mb-4">Arah Pembangunan <span class="text-gradient">Desa</span></h2>
+        <p class="text-navy-400 text-sm md:text-base max-w-2xl mx-auto font-light">Landasan pemikiran dan arah tujuan pembangunan Desa Kertowono menuju desa yang maju dan mandiri</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16">
+        <!-- Visi -->
+        <div class="scroll-animate">
+          <div class="glass-card rounded-2xl p-8 md:p-10 h-full relative overflow-hidden card-hover">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
+            <div class="relative z-10">
+              <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                  <span class="iconify text-2xl text-white" data-icon="lucide:eye"></span>
+                </div>
+                <h3 class="font-serif text-2xl md:text-3xl font-medium text-white">Visi</h3>
+              </div>
+              <blockquote class="relative pl-6 border-l-2 border-blue-500/40">
+                <p class="font-serif text-xl md:text-2xl font-medium text-blue-100 leading-relaxed italic">
+                  "Mewujudkan Desa Kertowono yang Maju, Mandiri, Sejahtera, dan Berbudaya Berbasis Potensi Lokal"
+                </p>
+              </blockquote>
+              <p class="text-navy-400 text-sm font-light leading-relaxed mt-6">
+                Visi ini menjadi pondasi bagi seluruh program pembangunan desa, mengarahkan masyarakat dan pemerintahan desa untuk berkolaborasi dalam menggali potensi lokal guna mencapai kesejahteraan bersama.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Misi -->
+        <div class="scroll-animate" style="transition-delay:0.2s">
+          <div class="glass-card rounded-2xl p-8 md:p-10 h-full relative overflow-hidden card-hover">
+            <div class="absolute bottom-0 left-0 w-32 h-32 bg-blue-600/5 rounded-full blur-2xl"></div>
+            <div class="relative z-10">
+              <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center shadow-lg shadow-blue-600/20">
+                  <span class="iconify text-2xl text-white" data-icon="lucide:target"></span>
+                </div>
+                <h3 class="font-serif text-2xl md:text-3xl font-medium text-white">Misi</h3>
+              </div>
+              <div class="space-y-4">
+                <div class="misi-item relative pl-5">
+                  <p class="text-sm md:text-base text-navy-200 font-light leading-relaxed">Meningkatkan kualitas pelayanan publik kepada masyarakat desa secara transparan dan akuntabel</p>
+                </div>
+                <div class="misi-item relative pl-5">
+                  <p class="text-sm md:text-base text-navy-200 font-light leading-relaxed">Mengembangkan potensi pertanian, perkebunan, dan UMKM desa untuk kemandirian ekonomi</p>
+                </div>
+                <div class="misi-item relative pl-5">
+                  <p class="text-sm md:text-base text-navy-200 font-light leading-relaxed">Membangun infrastruktur desa yang berkualitas dan merata untuk mendukung aktivitas masyarakat</p>
+                </div>
+                <div class="misi-item relative pl-5">
+                  <p class="text-sm md:text-base text-navy-200 font-light leading-relaxed">Melestarikan kearifan lokal dan budaya masyarakat Kertowono sebagai identitas desa</p>
+                </div>
+                <div class="misi-item relative pl-5">
+                  <p class="text-sm md:text-base text-navy-200 font-light leading-relaxed">Meningkatkan kualitas SDM melalui pendidikan, pelatihan, dan pemberdayaan masyarakat</p>
+                </div>
+                <div class="misi-item relative pl-5">
+                  <p class="text-sm md:text-base text-navy-200 font-light leading-relaxed">Mewujudkan lingkungan desa yang bersih, asri, dan berwawasan lingkungan</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PEMERINTAHAN DESA ===================== -->
+  <section id="pemerintahan" class="py-20 md:py-28 relative">
+    <div class="absolute top-0 left-0 right-0 section-divider"></div>
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 scroll-animate">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.15em] uppercase text-blue-400 bg-blue-500/10 border border-blue-500/15 mb-4">Pemerintahan</span>
+        <h2 class="font-serif text-3xl md:text-5xl font-medium tracking-tight text-white mb-4">Struktur <span class="text-gradient">Pemerintahan</span></h2>
+        <p class="text-navy-400 text-sm md:text-base max-w-2xl mx-auto font-light">Perangkat desa yang melayani dan membangun Desa Kertowono dengan penuh dedikasi</p>
+      </div>
+
+      <!-- Kades & Sekdes -->
+      <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-12">
+        <div class="scroll-animate glass-card-blue rounded-2xl p-6 md:p-8 text-center card-hover relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full blur-xl"></div>
+          <div class="relative z-10">
+            <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-blue-500/30 shadow-lg shadow-blue-500/10 mb-4">
+              <img src="https://picsum.photos/seed/kades-kertowono/200/200" alt="Kepala Desa" class="w-full h-full object-cover">
+            </div>
+            <span class="inline-block px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase bg-blue-500/15 text-blue-300 border border-blue-500/20 mb-3">Kepala Desa</span>
+            <h4 class="font-serif text-xl font-medium text-white">H. Ahmad Suryadi</h4>
+            <p class="text-sm text-navy-400 font-light mt-1">Periode 2020–2026</p>
+          </div>
+        </div>
+        <div class="scroll-animate glass-card rounded-2xl p-6 md:p-8 text-center card-hover relative overflow-hidden" style="transition-delay:0.15s">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full blur-xl"></div>
+          <div class="relative z-10">
+            <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-white/10 shadow-lg mb-4">
+              <img src="https://picsum.photos/seed/sekdes-kertowono/200/200" alt="Sekretaris Desa" class="w-full h-full object-cover">
+            </div>
+            <span class="inline-block px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase bg-white/5 text-navy-300 border border-white/10 mb-3">Sekretaris Desa</span>
+            <h4 class="font-serif text-xl font-medium text-white">Bambang Hartono, S.Sos</h4>
+            <p class="text-sm text-navy-400 font-light mt-1">Periode 2020–2026</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Perangkat Desa -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div class="scroll-animate glass-card rounded-xl p-5 text-center card-hover" style="transition-delay:0.1s">
+          <div class="w-16 h-16 mx-auto rounded-full overflow-hidden border border-white/10 mb-3">
+            <img src="https://picsum.photos/seed/kaur1/160/160" alt="Kaur Pemerintahan" class="w-full h-full object-cover">
+          </div>
+          <h5 class="font-medium text-white text-sm">Suradi</h5>
+          <p class="text-xs text-navy-400 font-light mt-0.5">Kaur Pemerintahan</p>
+        </div>
+        <div class="scroll-animate glass-card rounded-xl p-5 text-center card-hover" style="transition-delay:0.2s">
+          <div class="w-16 h-16 mx-auto rounded-full overflow-hidden border border-white/10 mb-3">
+            <img src="https://picsum.photos/seed/kaur2/160/160" alt="Kaur Pembangunan" class="w-full h-full object-cover">
+          </div>
+          <h5 class="font-medium text-white text-sm">Siti Nurhaliza</h5>
+          <p class="text-xs text-navy-400 font-light mt-0.5">Kaur Pembangunan</p>
+        </div>
+        <div class="scroll-animate glass-card rounded-xl p-5 text-center card-hover" style="transition-delay:0.3s">
+          <div class="w-16 h-16 mx-auto rounded-full overflow-hidden border border-white/10 mb-3">
+            <img src="https://picsum.photos/seed/kaur3/160/160" alt="Kaur Kesra" class="w-full h-full object-cover">
+          </div>
+          <h5 class="font-medium text-white text-sm">Rudi Prasetyo</h5>
+          <p class="text-xs text-navy-400 font-light mt-0.5">Kaur Kesra</p>
+        </div>
+        <div class="scroll-animate glass-card rounded-xl p-5 text-center card-hover" style="transition-delay:0.4s">
+          <div class="w-16 h-16 mx-auto rounded-full overflow-hidden border border-white/10 mb-3">
+            <img src="https://picsum.photos/seed/kaur4/160/160" alt="Kaur Keuangan" class="w-full h-full object-cover">
+          </div>
+          <h5 class="font-medium text-white text-sm">Dewi Ratnasari</h5>
+          <p class="text-xs text-navy-400 font-light mt-0.5">Kaur Keuangan</p>
+        </div>
+        <div class="scroll-animate glass-card rounded-xl p-5 text-center card-hover" style="transition-delay:0.5s">
+          <div class="w-16 h-16 mx-auto rounded-full overflow-hidden border border-white/10 mb-3">
+            <img src="https://picsum.photos/seed/kadus1/160/160" alt="Kepala Dusun 1" class="w-full h-full object-cover">
+          </div>
+          <h5 class="font-medium text-white text-sm">Sugeng Riyadi</h5>
+          <p class="text-xs text-navy-400 font-light mt-0.5">Kepala Dusun Krajan</p>
+        </div>
+        <div class="scroll-animate glass-card rounded-xl p-5 text-center card-hover" style="transition-delay:0.6s">
+          <div class="w-16 h-16 mx-auto rounded-full overflow-hidden border border-white/10 mb-3">
+            <img src="https://picsum.photos/seed/kadus2/160/160" alt="Kepala Dusun 2" class="w-full h-full object-cover">
+          </div>
+          <h5 class="font-medium text-white text-sm">Joko Widodo</h5>
+          <p class="text-xs text-navy-400 font-light mt-0.5">Kepala Dusun Tegalrejo</p>
+        </div>
+        <div class="scroll-animate glass-card rounded-xl p-5 text-center card-hover" style="transition-delay:0.7s">
+          <div class="w-16 h-16 mx-auto rounded-full overflow-hidden border border-white/10 mb-3">
+            <img src="https://picsum.photos/seed/kadus3/160/160" alt="Kepala Dusun 3" class="w-full h-full object-cover">
+          </div>
+          <h5 class="font-medium text-white text-sm">Heru Prabowo</h5>
+          <p class="text-xs text-navy-400 font-light mt-0.5">Kepala Dusun Sumberagung</p>
+        </div>
+        <div class="scroll-animate glass-card rounded-xl p-5 text-center card-hover" style="transition-delay:0.8s">
+          <div class="w-16 h-16 mx-auto rounded-full overflow-hidden border border-white/10 mb-3">
+            <img src="https://picsum.photos/seed/bpd1/160/160" alt="Ketua BPD" class="w-full h-full object-cover">
+          </div>
+          <h5 class="font-medium text-white text-sm">M. Rizki Fauzan</h5>
+          <p class="text-xs text-navy-400 font-light mt-0.5">Ketua BPD</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== POTENSI DESA ===================== -->
+  <section id="potensi" class="py-20 md:py-28 relative overflow-hidden">
+    <div class="absolute top-0 left-0 right-0 section-divider"></div>
+    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-500/3 rounded-full blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-5 md:px-8 relative z-10">
+      <div class="text-center mb-16 scroll-animate">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.15em] uppercase text-blue-400 bg-blue-500/10 border border-blue-500/15 mb-4">Potensi Unggulan</span>
+        <h2 class="font-serif text-3xl md:text-5xl font-medium tracking-tight text-white mb-4">Potensi <span class="text-gradient">Desa Kertowono</span></h2>
+        <p class="text-navy-400 text-sm md:text-base max-w-2xl mx-auto font-light">Kekayaan alam dan budaya yang menjadi modal pembangunan desa menuju kemandirian</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Potensi 1 -->
+        <div class="scroll-animate glass-card rounded-2xl overflow-hidden card-hover group" style="transition-delay:0.1s">
+          <div class="relative h-52 overflow-hidden">
+            <img src="kopi.jpeg" alt="Perkebunan Kopi" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent"></div>
+            <div class="absolute top-4 left-4">
+              <span class="px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase bg-blue-500/20 text-blue-200 backdrop-blur-sm border border-blue-500/20">Perkebunan</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="iconify text-blue-400 text-xl" data-icon="lucide:coffee"></span>
+              <h4 class="font-serif text-lg font-medium text-white">Kopi Arabika</h4>
+            </div>
+            <p class="text-sm text-navy-400 font-light leading-relaxed">Kopi arabika khas Kertowono tumbuh di ketinggian 600–800 mdpl dengan rasa khas dan aroma yang unik. Berpotensi menjadi produk unggulan desa untuk pasar nasional dan internasional.</p>
+          </div>
+        </div>
+
+        <!-- Potensi 2 -->
+        <div class="scroll-animate glass-card rounded-2xl overflow-hidden card-hover group" style="transition-delay:0.2s">
+          <div class="relative h-52 overflow-hidden">
+            <img src="cengkeh.jpeg" alt="Cengkeh" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent"></div>
+            <div class="absolute top-4 left-4">
+              <span class="px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase bg-blue-500/20 text-blue-200 backdrop-blur-sm border border-blue-500/20">Perkebunan</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="iconify text-blue-400 text-xl" data-icon="lucide:flower-2"></span>
+              <h4 class="font-serif text-lg font-medium text-white">Cengkeh</h4>
+            </div>
+            <p class="text-sm text-navy-400 font-light leading-relaxed">Cengkeh menjadi salah satu komoditas perkebunan andalan masyarakat Kertowono. Hasil panen cengkeh dari desa ini dikenal memiliki kualitas tinggi dan menjadi sumber pendapatan utama petani.</p>
+          </div>
+        </div>
+
+        <!-- Potensi 3 -->
+        <div class="scroll-animate glass-card rounded-2xl overflow-hidden card-hover group" style="transition-delay:0.3s">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://picsum.photos/seed/agriculture-rice/600/400" alt="Pertanian" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent"></div>
+            <div class="absolute top-4 left-4">
+              <span class="px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase bg-blue-500/20 text-blue-200 backdrop-blur-sm border border-blue-500/20">Pertanian</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="iconify text-blue-400 text-xl" data-icon="lucide:wheat"></span>
+              <h4 class="font-serif text-lg font-medium text-white">Hortikultura</h4>
+            </div>
+            <p class="text-sm text-navy-400 font-light leading-relaxed">Tanaman hortikultura seperti jagung, ubi, sayur-mayur, dan buah-buahan tumbuh subur berkat tanah vulkanik yang kaya akan mineral. Potensi ini terus dikembangkan melalui program desa.</p>
+          </div>
+        </div>
+
+        <!-- Potensi 4 -->
+        <div class="scroll-animate glass-card rounded-2xl overflow-hidden card-hover group" style="transition-delay:0.4s">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://picsum.photos/seed/waterfall-nature/600/400" alt="Wisata Alam" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent"></div>
+            <div class="absolute top-4 left-4">
+              <span class="px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase bg-blue-500/20 text-blue-200 backdrop-blur-sm border border-blue-500/20">Wisata</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="iconify text-blue-400 text-xl" data-icon="lucide:trees"></span>
+              <h4 class="font-serif text-lg font-medium text-white">Wisata Alam</h4>
+            </div>
+            <p class="text-sm text-navy-400 font-light leading-relaxed">Pemandangan Gunung Argowayo, air terjun, dan hutan lindung menjadi daya tarik wisata alam yang belum banyak dieksplorasi. Potensi eco-tourism sangat menjanjikan untuk dikembangkan.</p>
+          </div>
+        </div>
+
+        <!-- Potensi 5 -->
+        <div class="scroll-animate glass-card rounded-2xl overflow-hidden card-hover group" style="transition-delay:0.5s">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://picsum.photos/seed/craft-handmade/600/400" alt="UMKM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent"></div>
+            <div class="absolute top-4 left-4">
+              <span class="px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase bg-blue-500/20 text-blue-200 backdrop-blur-sm border border-blue-500/20">Ekonomi</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="iconify text-blue-400 text-xl" data-icon="lucide:store"></span>
+              <h4 class="font-serif text-lg font-medium text-white">UMKM Desa</h4>
+            </div>
+            <p class="text-sm text-navy-400 font-light leading-relaxed">Usaha Mikro Kecil dan Menengah berkembang pesat — dari pengolahan kopi, kerajinan tangan, makanan khas, hingga jasa wisata desa. UMKM menjadi motor penggerak ekonomi lokal.</p>
+          </div>
+        </div>
+
+        <!-- Potensi 6 -->
+        <div class="scroll-animate glass-card rounded-2xl overflow-hidden card-hover group" style="transition-delay:0.6s">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://picsum.photos/seed/culture-tradition/600/400" alt="Budaya" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent"></div>
+            <div class="absolute top-4 left-4">
+              <span class="px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase bg-blue-500/20 text-blue-200 backdrop-blur-sm border border-blue-500/20">Budaya</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="iconify text-blue-400 text-xl" data-icon="lucide:music"></span>
+              <h4 class="font-serif text-lg font-medium text-white">Kearifan Lokal</h4>
+            </div>
+            <p class="text-sm text-navy-400 font-light leading-relaxed">Tradisi dan budaya masyarakat Kertowono masih terjaga kuat — dari upacara adat, kesenian tradisional, hingga ritual panen yang menjadi daya tarik budaya yang tak ternilai.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALERI ===================== -->
+  <section id="galeri" class="py-20 md:py-28 relative">
+    <div class="absolute top-0 left-0 right-0 section-divider"></div>
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 scroll-animate">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.15em] uppercase text-blue-400 bg-blue-500/10 border border-blue-500/15 mb-4">Galeri</span>
+        <h2 class="font-serif text-3xl md:text-5xl font-medium tracking-tight text-white mb-4">Galeri <span class="text-gradient">Desa Kertowono</span></h2>
+        <p class="text-navy-400 text-sm md:text-base max-w-2xl mx-auto font-light">Dokumentasi visual kehidupan, alam, dan kegiatan masyarakat Desa Kertowono</p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="flex flex-wrap justify-center gap-2 mb-10 scroll-animate">
+        <button class="gallery-filter active px-5 py-2 rounded-full text-sm font-medium transition-all" data-filter="all">Semua</button>
+        <button class="gallery-filter px-5 py-2 rounded-full text-sm font-medium transition-all" data-filter="alam">Alam</button>
+        <button class="gallery-filter px-5 py-2 rounded-full text-sm font-medium transition-all" data-filter="kegiatan">Kegiatan</button>
+        <button class="gallery-filter px-5 py-2 rounded-full text-sm font-medium transition-all" data-filter="budaya">Budaya</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div id="galleryGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+        <div class="gallery-item alam galley-grid-item relative group cursor-pointer aspect-[4/3]" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/seed/gal-alam1/600/450" alt="Pemandangan Desa" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-navy-950/0 group-hover:bg-navy-950/50 transition-colors duration-300 flex items-center justify-center">
+            <span class="iconify text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-icon="lucide:zoom-in"></span>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-navy-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p class="text-xs text-white font-light">Pemandangan Desa</p>
+          </div>
+        </div>
+        <div class="gallery-item kegiatan galley-grid-item relative group cursor-pointer aspect-[4/3] md:row-span-2" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/seed/gal-keg1/600/900" alt="Gotong Royong" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-navy-950/0 group-hover:bg-navy-950/50 transition-colors duration-300 flex items-center justify-center">
+            <span class="iconify text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-icon="lucide:zoom-in"></span>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-navy-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p class="text-xs text-white font-light">Gotong Royong Masyarakat</p>
+          </div>
+        </div>
+        <div class="gallery-item budaya galley-grid-item relative group cursor-pointer aspect-[4/3]" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/seed/gal-bud1/600/450" alt="Kesenian Tradisional" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-navy-950/0 group-hover:bg-navy-950/50 transition-colors duration-300 flex items-center justify-center">
+            <span class="iconify text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-icon="lucide:zoom-in"></span>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-navy-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p class="text-xs text-white font-light">Kesenian Tradisional</p>
+          </div>
+        </div>
+        <div class="gallery-item alam galley-grid-item relative group cursor-pointer aspect-[4/3]" onclick="openLightbox(this)">
+          <img src="antrukan pawon.jpeg" alt="Antrukan Pawon" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-navy-950/0 group-hover:bg-navy-950/50 transition-colors duration-300 flex items-center justify-center">
+            <span class="iconify text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-icon="lucide:zoom-in"></span>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-navy-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p class="text-xs text-white font-light">Antrukan Pawon</p>
+          </div>
+        </div>
+        <div class="gallery-item kegiatan galley-grid-item relative group cursor-pointer aspect-[4/3]" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/seed/gal-keg2/600/450" alt="Musyawarah Desa" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-navy-950/0 group-hover:bg-navy-950/50 transition-colors duration-300 flex items-center justify-center">
+            <span class="iconify text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-icon="lucide:zoom-in"></span>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-navy-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p class="text-xs text-white font-light">Musyawarah Desa</p>
+          </div>
+        </div>
+        <div class="gallery-item alam galley-grid-item relative group cursor-pointer aspect-[4/3]" onclick="openLightbox(this)">
+          <img src="antrukan1.jpeg" alt="Antrukan Pawon" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-navy-950/0 group-hover:bg-navy-950/50 transition-colors duration-300 flex items-center justify-center">
+            <span class="iconify text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-icon="lucide:zoom-in"></span>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-navy-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p class="text-xs text-white font-light">Antrukan Pawon</p>
+          </div>
+        </div>
+        <div class="gallery-item budaya galley-grid-item relative group cursor-pointer aspect-[4/3]" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/seed/gal-bud2/600/450" alt="Upacara Adat" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-navy-950/0 group-hover:bg-navy-950/50 transition-colors duration-300 flex items-center justify-center">
+            <span class="iconify text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-icon="lucide:zoom-in"></span>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-navy-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p class="text-xs text-white font-light">Upacara Adat</p>
+          </div>
+        </div>
+        <div class="gallery-item kegiatan galley-grid-item relative group cursor-pointer aspect-[4/3]" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/seed/gal-keg3/600/450" alt="Pelatihan UMKM" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-navy-950/0 group-hover:bg-navy-950/50 transition-colors duration-300 flex items-center justify-center">
+            <span class="iconify text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-icon="lucide:zoom-in"></span>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-navy-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p class="text-xs text-white font-light">Pelatihan UMKM</p>
+          </div>
+        </div>
+        <div class="gallery-item alam galley-grid-item relative group cursor-pointer aspect-[4/3]" onclick="openLightbox(this)">
+          <img src="antrukan3.jpeg" alt="Sungai Desa" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-navy-950/0 group-hover:bg-navy-950/50 transition-colors duration-300 flex items-center justify-center">
+            <span class="iconify text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-icon="lucide:zoom-in"></span>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-navy-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p class="text-xs text-white font-light">Antrukan Pawon</p>
+          </div>
+        </div>
+        <div class="gallery-item budaya galley-grid-item relative group cursor-pointer aspect-[4/3]" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/seed/gal-bud3/600/450" alt="Tari Tradisional" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-navy-950/0 group-hover:bg-navy-950/50 transition-colors duration-300 flex items-center justify-center">
+            <span class="iconify text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-icon="lucide:zoom-in"></span>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-navy-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p class="text-xs text-white font-light">Tari Tradisional</p>
+          </div>
+        </div>
+        <div class="gallery-item kegiatan galley-grid-item relative group cursor-pointer aspect-[4/3]" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/seed/gal-keg4/600/450" alt="Posyandu" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-navy-950/0 group-hover:bg-navy-950/50 transition-colors duration-300 flex items-center justify-center">
+            <span class="iconify text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-icon="lucide:zoom-in"></span>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-navy-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p class="text-xs text-white font-light">Kegiatan Posyandu</p>
+          </div>
+        </div>
+        <div class="gallery-item alam galley-grid-item relative group cursor-pointer aspect-[4/3]" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/seed/gal-alam5/600/450" alt="Sunset Desa" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-navy-950/0 group-hover:bg-navy-950/50 transition-colors duration-300 flex items-center justify-center">
+            <span class="iconify text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-icon="lucide:zoom-in"></span>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-navy-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p class="text-xs text-white font-light">Sunset di Desa</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 hidden" onclick="closeLightbox(event)">
+    <button onclick="closeLightbox(event)" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors z-10">
+      <span class="iconify text-xl" data-icon="lucide:x"></span>
+    </button>
+    <img id="lightboxImg" src="" alt="" class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl">
+  </div>
+
+  <!-- ===================== KONTAK & MAPS ===================== -->
+  <section id="kontak" class="py-20 md:py-28 relative overflow-hidden">
+    <div class="absolute top-0 left-0 right-0 section-divider"></div>
+    <div class="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-blue-500/3 rounded-full blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-5 md:px-8 relative z-10">
+      <div class="text-center mb-16 scroll-animate">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.15em] uppercase text-blue-400 bg-blue-500/10 border border-blue-500/15 mb-4">Kontak</span>
+        <h2 class="font-serif text-3xl md:text-5xl font-medium tracking-tight text-white mb-4">Hubungi <span class="text-gradient">Desa Kertowono</span></h2>
+        <p class="text-navy-400 text-sm md:text-base max-w-2xl mx-auto font-light">Jangan ragu untuk menghubungi kami untuk informasi lebih lanjut tentang Desa Kertowono</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
+        <!-- Contact Info & Form -->
+        <div class="space-y-8">
+          <!-- Contact Cards -->
+          <div class="grid sm:grid-cols-2 gap-4 scroll-animate">
+            <div class="glass-card-blue rounded-xl p-5 card-hover">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="iconify text-blue-400 text-lg" data-icon="lucide:map-pin"></span>
+                <span class="text-xs text-navy-400 uppercase tracking-wider font-medium">Alamat</span>
+              </div>
+              <p class="text-sm text-navy-200 font-light leading-relaxed">Desa Kertowono, Kec. Gucialit, Kab. Lumajang, Jawa Timur 67353</p>
+            </div>
+            <div class="glass-card-blue rounded-xl p-5 card-hover">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="iconify text-blue-400 text-lg" data-icon="lucide:phone"></span>
+                <span class="text-xs text-navy-400 uppercase tracking-wider font-medium">Telepon</span>
+              </div>
+              <p class="text-sm text-navy-200 font-light">(0334) 882-XXX</p>
+            </div>
+            <div class="glass-card-blue rounded-xl p-5 card-hover">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="iconify text-blue-400 text-lg" data-icon="lucide:mail"></span>
+                <span class="text-xs text-navy-400 uppercase tracking-wider font-medium">Email</span>
+              </div>
+              <p class="text-sm text-navy-200 font-light break-all">desakertowono@gmail.com</p>
+            </div>
+            <div class="glass-card-blue rounded-xl p-5 card-hover">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="iconify text-blue-400 text-lg" data-icon="lucide:clock"></span>
+                <span class="text-xs text-navy-400 uppercase tracking-wider font-medium">Jam Layanan</span>
+              </div>
+              <p class="text-sm text-navy-200 font-light">Senin–Jumat, 08.00–15.00 WIB</p>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="scroll-animate glass-card rounded-2xl p-6 md:p-8" style="transition-delay:0.2s">
+            <h4 class="font-serif text-xl font-medium text-white mb-6">Kirim Pesan</h4>
+            <form id="contactForm" onsubmit="handleSubmit(event)" class="space-y-4">
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs text-navy-400 uppercase tracking-wider font-medium mb-2">Nama</label>
+                  <input type="text" required class="w-full px-4 py-3 rounded-lg bg-navy-900/50 border border-white/8 text-white text-sm placeholder-navy-600 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-colors" placeholder="Nama lengkap">
+                </div>
+                <div>
+                  <label class="block text-xs text-navy-400 uppercase tracking-wider font-medium mb-2">Email</label>
+                  <input type="email" required class="w-full px-4 py-3 rounded-lg bg-navy-900/50 border border-white/8 text-white text-sm placeholder-navy-600 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-colors" placeholder="email@contoh.com">
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs text-navy-400 uppercase tracking-wider font-medium mb-2">Subjek</label>
+                <input type="text" required class="w-full px-4 py-3 rounded-lg bg-navy-900/50 border border-white/8 text-white text-sm placeholder-navy-600 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-colors" placeholder="Subjek pesan">
+              </div>
+              <div>
+                <label class="block text-xs text-navy-400 uppercase tracking-wider font-medium mb-2">Pesan</label>
+                <textarea required rows="4" class="w-full px-4 py-3 rounded-lg bg-navy-900/50 border border-white/8 text-white text-sm placeholder-navy-600 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-colors resize-none" placeholder="Tulis pesan Anda..."></textarea>
+              </div>
+              <button type="submit" class="btn-primary w-full px-6 py-3.5 rounded-lg text-sm font-medium text-white flex items-center justify-center gap-2">
+                <span class="iconify text-lg" data-icon="lucide:send"></span>
+                Kirim Pesan
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Google Maps -->
+        <div class="scroll-animate" style="transition-delay:0.3s">
+          <div class="glass-card rounded-2xl overflow-hidden h-full min-h-[400px] md:min-h-[500px]">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31584.96!2d113.23!3d-8.12!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6882a0b3b3b3b3%3A0x3b3b3b3b3b3b3b3b!2sKertowono%2C+Gucialit%2C+Lumajang+Regency%2C+East+Java!5e0!3m2!1sid!2sid!4v1"
+              width="100%"
+              height="100%"
+              style="border:0; min-height:400px; filter: brightness(0.8) contrast(1.1) saturate(0.8) hue-rotate(180deg);"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              class="w-full h-full"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="relative pt-16 pb-8 border-t border-white/5">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-5 md:px-8 relative z-10">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
+        <!-- Brand -->
+        <div class="md:col-span-2">
+          <a href="#hero" class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-blue-500/20">K</div>
+            <div>
+              <span class="font-serif text-lg font-medium text-white">Desa Kertowono</span>
+              <span class="block text-[10px] text-navy-500">Kecamatan Gucialit · Kabupaten Lumajang</span>
+            </div>
+          </a>
+          <p class="text-sm text-navy-400 font-light leading-relaxed max-w-sm mb-4">
+            Membangun desa yang maju, mandiri, sejahtera, dan berbudaya berbasis potensi lokal masyarakat Kertowono.
+          </p>
+          <div class="flex gap-3">
+            <a href="#" class="w-9 h-9 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center text-navy-400 hover:text-blue-400 hover:border-blue-500/30 hover:bg-blue-500/10 transition-all">
+              <span class="iconify text-lg" data-icon="lucide:facebook"></span>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center text-navy-400 hover:text-blue-400 hover:border-blue-500/30 hover:bg-blue-500/10 transition-all">
+              <span class="iconify text-lg" data-icon="lucide:instagram"></span>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center text-navy-400 hover:text-blue-400 hover:border-blue-500/30 hover:bg-blue-500/10 transition-all">
+              <span class="iconify text-lg" data-icon="lucide:youtube"></span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h5 class="text-sm font-medium text-white mb-4">Navigasi</h5>
+          <ul class="space-y-2.5">
+            <li><a href="#profil" class="text-sm text-navy-400 hover:text-blue-400 font-light transition-colors">Profil Desa</a></li>
+            <li><a href="#visi-misi" class="text-sm text-navy-400 hover:text-blue-400 font-light transition-colors">Visi & Misi</a></li>
+            <li><a href="#pemerintahan" class="text-sm text-navy-400 hover:text-blue-400 font-light transition-colors">Pemerintahan</a></li>
+            <li><a href="#potensi" class="text-sm text-navy-400 hover:text-blue-400 font-light transition-colors">Potensi Desa</a></li>
+            <li><a href="#galeri" class="text-sm text-navy-400 hover:text-blue-400 font-light transition-colors">Galeri</a></li>
+            <li><a href="#kontak" class="text-sm text-navy-400 hover:text-blue-400 font-light transition-colors">Kontak</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h5 class="text-sm font-medium text-white mb-4">Kontak</h5>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-2.5">
+              <span class="iconify text-blue-400 text-sm mt-0.5 shrink-0" data-icon="lucide:map-pin"></span>
+              <span class="text-sm text-navy-400 font-light">Desa Kertowono, Kec. Gucialit, Kab. Lumajang, Jawa Timur</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <span class="iconify text-blue-400 text-sm shrink-0" data-icon="lucide:phone"></span>
+              <span class="text-sm text-navy-400 font-light">(0334) 882-XXX</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <span class="iconify text-blue-400 text-sm shrink-0" data-icon="lucide:mail"></span>
+              <span class="text-sm text-navy-400 font-light">desakertowono@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom -->
+      <div class="section-divider mb-6"></div>
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-navy-600">
+        <p>© 2026 Desa Kertowono. Hak cipta dilindungi undang-undang.</p>
+        <p class="text-navy-700">KKN ITB WIGA Desa Kertowono 2026 – Fiisatil Kamila</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== JAVASCRIPT ===================== -->
+  <script>
+    // ===== Mobile Menu =====
+    const menuBtn = document.getElementById('menuBtn');
+    const closeMenuBtn = document.getElementById('closeMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ===== Scroll Animations =====
+    const scrollAnimateElements = document.querySelectorAll('.scroll-animate');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    scrollAnimateElements.forEach(el => observer.observe(el));
+
+    // ===== Navbar Scroll Effect =====
+    const navbar = document.getElementById('navbar');
+    let lastScrollY = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > 80) {
+        navbar.style.boxShadow = '0 4px 30px rgba(0,0,0,0.3)';
+      } else {
+        navbar.style.boxShadow = 'none';
+      }
+      lastScrollY = currentScrollY;
+    });
+
+    // ===== Gallery Filter =====
+    const filterBtns = document.querySelectorAll('.gallery-filter');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active state
+        filterBtns.forEach(b => {
+          b.classList.remove('active');
+          b.style.background = 'rgba(255,255,255,0.03)';
+          b.style.color = '#627d98';
+          b.style.border = '1px solid rgba(255,255,255,0.06)';
+        });
+        btn.classList.add('active');
+        btn.style.background = 'rgba(59,130,246,0.15)';
+        btn.style.color = '#93c5fd';
+        btn.style.border = '1px solid rgba(59,130,246,0.3)';
+
+        const filter = btn.dataset.filter;
+
+        galleryItems.forEach(item => {
+          if (filter === 'all' || item.classList.contains(filter)) {
+            item.style.display = '';
+            item.style.opacity = '0';
+            item.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+              item.style.transition = 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+              item.style.opacity = '1';
+              item.style.transform = 'scale(1)';
+            }, 50);
+          } else {
+            item.style.opacity = '0';
+            item.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+              item.style.display = 'none';
+            }, 300);
+          }
+        });
+      });
+    });
+
+    // Initialize filter button styles
+    filterBtns.forEach(btn => {
+      if (btn.classList.contains('active')) {
+        btn.style.background = 'rgba(59,130,246,0.15)';
+        btn.style.color = '#93c5fd';
+        btn.style.border = '1px solid rgba(59,130,246,0.3)';
+      } else {
+        btn.style.background = 'rgba(255,255,255,0.03)';
+        btn.style.color = '#627d98';
+        btn.style.border = '1px solid rgba(255,255,255,0.06)';
+        btn.style.cursor = 'pointer';
+      }
+    });
+
+    // ===== Lightbox =====
+    function openLightbox(el) {
+      const img = el.querySelector('img');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(e) {
+      if (e.target === document.getElementById('lightbox') || e.currentTarget.tagName === 'BUTTON') {
+        document.getElementById('lightbox').classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Close lightbox on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.getElementById('lightbox').classList.add('hidden');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // ===== Toast Notification =====
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toast-message');
+      toastMessage.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // ===== Contact Form =====
+    function handleSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('button[type="submit"]');
+      const originalHTML = btn.innerHTML;
+
+      // Loading state
+      btn.innerHTML = '<span class="iconify animate-spin text-lg" data-icon="lucide:loader-2"></span> Mengirim...';
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+
+      // Simulate sending
+      setTimeout(() => {
+        btn.innerHTML = '<span class="iconify text-lg" data-icon="lucide:check"></span> Terkirim!';
+        btn.style.background = 'linear-gradient(135deg, #059669, #10b981)';
+        showToast('✓ Pesan berhasil dikirim! Terima kasih telah menghubungi kami.');
+
+        setTimeout(() => {
+          btn.innerHTML = originalHTML;
+          btn.disabled = false;
+          btn.style.opacity = '1';
+          btn.style.background = '';
+          form.reset();
+        }, 2500);
+      }, 1500);
+    }
+
+    // ===== Active Nav Link on Scroll =====
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('text-white');
+        link.classList.add('text-navy-300');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('text-white');
+          link.classList.remove('text-navy-300');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
